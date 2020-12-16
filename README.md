@@ -14,7 +14,7 @@ $ git clone https://github.com/soynet-support/demo_docker
 $ cd demo_docker
 
 # x86 ubuntu 18.04 인 경우,
-$ docker build -t demo -f Dockerfile . 
+$ docker build -t demo -f Dockerfile.x86 . 
 
 # Jetson Nano Jetpack 4.4 인 경우, 
 $ docker build -t demo -f Dockerfile.jetsonNano . 
