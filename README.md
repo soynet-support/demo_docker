@@ -1,4 +1,10 @@
-# SoyNet 테스트를 위한 개발 환경을 위한 Docker Container 생성 방법 설명
+# SoyNet 테스트를 위한 Docker Container 생성 방법 설명
+
+SoyNet을 이용한 AI 모델 데모를 실행하기 위해 필요한 환경 구성을 위해
+x86 (Ubuntu 18.04)인 경우와 Jetson Nano (JetPack 4.4) 용 Dockerfile을 이용한 
+docker container image 생성을 하는 과정을 설명한다.
+단, 본 docker container에는 SoyNet demo는 포함되어 있지 않으므로 다음의 링크를 참조하도록 한다. 
+- SoyNet demo repo : https://github.com/soynet-support/demo_yolo
 
 
 
