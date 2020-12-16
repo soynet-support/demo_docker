@@ -49,5 +49,4 @@ $ docker run -ti -e DISPLAY=$DISPLAY \
   trt20.03-py:demo bash
 ```
 
-주의) 
-1.--gpus 옵션 적용해야 nvidia-smi 등 gpu 관련 기능 및 PATH 환경정보 사용 가능
+* --gpus 옵션 적용해야 nvidia-smi 등 gpu 관련 기능 및 PATH 환경정보 사용 가능
