@@ -31,16 +31,15 @@ RUN apt update && apt install -y --no-install-recommends \
 
 RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/3.4.5.zip && \
     unzip opencv.zip && \
-    mv opencv-3.4.5 opencv
-RUN wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/3.4.5.zip && \
+    mv opencv-3.4.5 opencv && \ 
+    wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/3.4.5.zip && \
     unzip opencv_contrib.zip && \
-    mv opencv_contrib-3.4.5 opencv_contrib 
-RUN rm opencv.zip opencv_contrib.zip
+    mv opencv_contrib-3.4.5 opencv_contrib && \
+    rm opencv.zip opencv_contrib.zip
 
 WORKDIR /root/opencv 
-RUN mkdir build && cd build 
-
-RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
+RUN mkdir build && cd build && \
+    cmake -D CMAKE_BUILD_TYPE=RELEASE \
         -D CMAKE_INSTALL_PREFIX=/usr \
         -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules \
         -D EIGEN_INCLUDE_PATH=/usr/include/eigen3 \
@@ -72,8 +71,8 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
         -D BUILD_opencv_python3=TRUE \
         -D OPENCV_GENERATE_PKGCONFIG=ON \
         -D BUILD_EXAMPLES=OFF ..
-RUN make -j4 && make install && ldconfig
-RUN rm /root/opencv /root/opencv_contrib
+RUN make -j4 && make install && ldconfig && \ 
+    rm /root/opencv /root/opencv_contrib
 
 # Jetson usage 확인용 tool 설치 
 RUN pip3 install setuptools jetson-stats
