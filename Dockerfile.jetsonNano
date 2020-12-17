@@ -31,6 +31,9 @@ RUN apt update && apt install -y --no-install-recommends \
 # build opencv 
 RUN wget https://github.com/JetsonHacksNano/buildOpenCV/blob/master/buildOpenCV.sh && \
     bash ./buildOpenCV.sh
+    
+    git clone https://github.com/JetsonHacksNano/buildOpenCV
+    ./buildOpenCV.sh |& tee openCV_build.log
 
 # Jetson usage 확인용 tool 설치 
-RUN pip3 install setuptools jetson-stats
+# RUN pip3 install setuptools jetson-stats
