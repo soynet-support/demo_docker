@@ -29,6 +29,9 @@ RUN apt update && apt install -y --no-install-recommends \
         libhdf5-dev protobuf-compiler \
         libprotobuf-dev libgoogle-glog-dev libgflags-dev sudo
 
+RUN wget https://github.com/JetsonHacksNano/buildOpenCV/blob/master/buildOpenCV.sh && bash ./buildOpenCV.sh 
+
+<!--
 RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/3.4.5.zip && \
     unzip opencv.zip && \
     mv opencv-3.4.5 opencv && \ 
@@ -75,6 +78,8 @@ RUN mkdir build && cd build && \
 WORKDIR /root/opencv/build         
 RUN make -j4 && make install && ldconfig && \ 
     rm /root/opencv /root/opencv_contrib
+//-->
+
 
 # Jetson usage 확인용 tool 설치 
 RUN pip3 install setuptools jetson-stats
