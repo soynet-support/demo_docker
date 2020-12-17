@@ -69,3 +69,6 @@ $ docker run -ti -e DISPLAY=$DISPLAY \
   --name demo \
   r32.4.3:demo bash
 ```
+
+### 4.유의사항
+- Jetson Nano의 경우 OpenCV 빌드를 위해 swap memory 용량을 2GB->4GB 이상으로 확장 필요할 수 있음
