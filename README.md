@@ -9,6 +9,14 @@ docker container image 생성을 하는 과정을 설명한다.
 
 
 
+### 필요사항
+사전 필요 패키지 
+- docker 
+- nvidia-docker2 
+
+Host OS
+- 우분투 18.04 
+
 ### 1.Dockerfile download 및 실행 
 ```
 $ git clone https://github.com/soynet-support/demo_docker
@@ -45,7 +53,7 @@ x86 ubuntu 18.04 경우,
 $ docker run -ti -e DISPLAY=$DISPLAY \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -e USER=$USER \
-  --runtime=nvidia
+  --runtime=nvidia \
   --gpus all \
   --name demo \
   trt20.03-py:demo bash
@@ -56,7 +64,7 @@ Jetson Nano (Jetpack 4.4) 경우,
 $ docker run -ti -e DISPLAY=$DISPLAY \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -e USER=$USER \
-  --runtime=nvidia
+  --runtime=nvidia \
   --gpus all \
   --name demo \
   r32.4.3:demo bash
