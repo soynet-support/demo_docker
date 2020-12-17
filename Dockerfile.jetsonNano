@@ -35,9 +35,9 @@ RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/3.4.5.zip && \
 RUN wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/3.4.5.zip && \
     unzip opencv_contrib.zip && \
     mv opencv_contrib-3.4.5 opencv_contrib 
-RUN rm opencv.zip opencv_contrib.zip 
+RUN rm opencv.zip opencv_contrib.zip
 
-WORKDIR /opencv 
+WORKDIR /root/opencv 
 RUN mkdir build && cd build 
 
 RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
@@ -72,28 +72,8 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
         -D BUILD_opencv_python3=TRUE \
         -D OPENCV_GENERATE_PKGCONFIG=ON \
         -D BUILD_EXAMPLES=OFF ..
-RUN make -j4 
-RUN make install && ldconfig 
+RUN make -j4 && make install && ldconfig
+RUN rm /root/opencv /root/opencv_contrib
 
 # Jetson usage 확인용 tool 설치 
 RUN pip3 install setuptools jetson-stats
-
-# 테스트 용 python 환경 구성
-# RUN apt install -y --no-install-recommends \
-# 			python3 \
-#       python3-pip \
-#       python3-dev \
-#       python3-wheel 
-# RUN pip3 install --upgrade pip
-# RUN pip3 install setuptools>=41.0.0 python3-opencv numpy 
-# RUN ln -s /usr/bin/python3 python && ln -s /usr/bin/pip3 pip
-
-# SoyNet download 및 환경 구성 
-# RUN echo "LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:/usr/local/cuda/targets/x86_64-linux/lib:${LD_LIBRARY_PATH}" >> ~/.bashrc
-
-#WORKDIR /
-#RUN git clone https://github.com/soynet-support/demo_yolo
-
-# SoyNet Yolov3, Yolov3-tiny, yolov4 용 weight 파일 다운로드 
-#WORKDIR /demo_yolo/mgmt/weights
-#RUN bash ./download_weights.sh 
