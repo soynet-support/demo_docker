@@ -15,10 +15,10 @@ $ git clone https://github.com/soynet-support/demo_docker
 $ cd demo_docker
 
 # x86 ubuntu 18.04 인 경우,
-$ docker build -t trt20.03-py -f Dockerfile.x86 . 
+$ docker build -t trt20.03-py:demo -f Dockerfile.x86 . 
 
 # Jetson Nano Jetpack 4.4 인 경우, 
-$ docker build -t r32.4.3 -f Dockerfile.jetsonNano . 
+$ docker build -t r32.4.3:demo -f Dockerfile.jetsonNano . 
 ```
 
 docker image 생성 여부 확인
