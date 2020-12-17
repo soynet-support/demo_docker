@@ -27,7 +27,7 @@ RUN apt install -y --no-install-recommends \
         libopenblas-dev libatlas-base-dev libblas-dev \
         liblapack-dev libeigen3-dev gfortran \
         libhdf5-dev protobuf-compiler \
-        libprotobuf-dev libgoogle-glog-dev libgflags-dev sudo mlocate htop
+        libprotobuf-dev libgoogle-glog-dev libgflags-dev sudo
 
 RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/3.4.5.zip && \
     unzip opencv.zip && \
