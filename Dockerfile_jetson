@@ -1,0 +1,16 @@
+FROM nvcr.io/nvidia/l4t-base:r32.2.1
+
+RUN apt-get update
+RUN apt-get install -y && \
+        git python3-pip cmake protobuf-compiler libprotoc-dev libopenblas-dev && \
+        gfortran libjpeg8-dev libxslt1-dev libfreetype6-dev
+
+# python env 
+RUN pip3 install numpy python3-opencv
+
+WORKDIR /
+RUN git clone https://github.com/soynet-support/demo_yolo_nano
+
+# SoyNet Yolov3, Yolov3-tiny, yolov4 용 weight 파일 다운로드 
+WORKDIR /demo_yolo_nano/mgmt/weights
+RUN bash ./download_weights.sh
