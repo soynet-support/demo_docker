@@ -11,7 +11,7 @@ RUN apt-get install -y -q
 RUN echo '/usr/local/cuda/lib64' >> /etc/ld.so.conf.d/nvidia-tegra.conf && ldconfig 
 
 # 3rd party library for opencv build
-RUN apt install -y --no-install-recommends \
+RUN apt update && apt install -y --no-install-recommends \
         build-essential cmake git unzip pkg-config \
         libjpeg-dev libpng-dev libtiff-dev \
         libavcodec-dev libavformat-dev libswscale-dev \
