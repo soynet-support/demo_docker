@@ -71,6 +71,8 @@ RUN mkdir build && cd build && \
         -D BUILD_opencv_python3=TRUE \
         -D OPENCV_GENERATE_PKGCONFIG=ON \
         -D BUILD_EXAMPLES=OFF ..
+
+WORKDIR /root/opencv/build         
 RUN make -j4 && make install && ldconfig && \ 
     rm /root/opencv /root/opencv_contrib
 
