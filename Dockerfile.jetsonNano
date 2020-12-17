@@ -27,7 +27,7 @@ RUN apt install -y --no-install-recommends \
         libopenblas-dev libatlas-base-dev libblas-dev \
         liblapack-dev libeigen3-dev gfortran \
         libhdf5-dev protobuf-compiler \
-        libprotobuf-dev libgoogle-glog-dev libgflags-dev sudo 
+        libprotobuf-dev libgoogle-glog-dev libgflags-dev sudo mlocate htop
 
 RUN wget -O opencv.zip https://github.com/opencv/opencv/archive/3.4.5.zip && \
     unzip opencv.zip && \
@@ -74,6 +74,9 @@ RUN cmake -D CMAKE_BUILD_TYPE=RELEASE \
         -D BUILD_EXAMPLES=OFF ..
 RUN make -j4 
 RUN make install && ldconfig 
+
+# Jetson usage 확인용 tool 설치 
+RUN pip3 install setuptools jetson-stats
 
 # 테스트 용 python 환경 구성
 # RUN apt install -y --no-install-recommends \
