@@ -9,12 +9,12 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 RUN apt-get install -y -q
 
 # 공통 package 설치 (opencv build 및 demo 구동 목적)
-RUN apt-get update && apt install -y software-properties-common 
+RUN apt-get update && apt install -y software-properties-common
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test
-RUN apt install -y --no-install-recommends wget git sudo cmake pkg-config unzip \
+RUN apt install -y --no-install-recommends wget git cmake pkg-config unzip \
         build-essential libssl-dev protobuf-compiler libprotoc-dev \
         libopenblas-dev gfortran libjpeg8-dev libxslt1-dev libfreetype6-dev sudo \
-        setuptools x11-apps libgtk2.0-dev
+        x11-apps libgtk-3-dev
 
 # opencv 3.4.5 download & build 
 RUN wget https://soynet.io/demo/opencv_345_install.sh
