@@ -29,7 +29,7 @@ RUN apt update && apt install -y --no-install-recommends \
         libprotobuf-dev libgoogle-glog-dev libgflags-dev lshw sudo
 
 # build opencv 
-RUN wget https://soynet.io/demo/opencv_345_install_jetsonNano.sh && bash ./buildOpenCV.sh
+RUN wget https://soynet.io/demo/opencv_345_install_jetsonNano.sh && bash ./opencv_345_install_jetsonNano.sh
 #    git clone https://github.com/JetsonHacksNano/buildOpenCV
 #    ./buildOpenCV.sh |& tee openCV_build.log
 
