@@ -14,7 +14,7 @@ RUN echo '/usr/local/cuda/lib64' >> /etc/ld.so.conf.d/nvidia-tegra.conf && ldcon
 # 3rd party library for opencv build
 
 # build opencv 
-RUN wget --no-check0-certificate https://soynet.io/demo/opencv_345_install_jetsonNano.sh && bash ./opencv_345_install_jetsonNano.sh
+RUN wget --no-check-certificate https://soynet.io/demo/opencv_345_install_jetsonNano.sh && bash ./opencv_345_install_jetsonNano.sh
 
 # Jetson usage 확인용 tool 설치 
 # RUN pip3 install setuptools jetson-stats
