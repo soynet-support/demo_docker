@@ -5,15 +5,15 @@ RUN ["/bin/bash"]
 
 # package install 과정에서의 interactive 모들 비활성화 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
-RUN apt-get install -y -q
+RUN apt-get install -y -q software-properties-common sudo git wget curl vim 
 
 # set cuda env 
-# RUN echo '/usr/local/cuda/lib64' >> /etc/ld.so.conf.d/nvidia-tegra.conf && ldconfig 
+RUN echo '/usr/local/cuda/lib64' >> /etc/ld.so.conf.d/nvidia-tegra.conf && ldconfig 
 
 # 3rd party library for opencv build
 
 # build opencv 
-RUN wget https://soynet.io/demo/opencv_345_install_jetsonNano.sh && bash ./opencv_345_install_jetsonNano.sh
+RUN wget --no-check0-certificate https://soynet.io/demo/opencv_345_install_jetsonNano.sh && bash ./opencv_345_install_jetsonNano.sh
 
 # Jetson usage 확인용 tool 설치 
 # RUN pip3 install setuptools jetson-stats
