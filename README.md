@@ -15,6 +15,7 @@ This section describes the process of creating a docker container image using Do
 ### Ubuntu 18.04
 
 1.Download and run Dockerfile
+
 $ git clone [https://github.com/soynet-support/demo_docker](https://github.com/soynet-support/demo_docker)
 $ cd demo_docker
 
