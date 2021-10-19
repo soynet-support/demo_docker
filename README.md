@@ -40,20 +40,20 @@ $ xhost +local:docker
 
 # For x86 ubuntu 18.04,
 
-$ docker run -ti -e DISPLAY=$DISPLAY \
--v /tmp/.X11-unix:/tmp/.X11-unix \
--e USER=$USER \
---runtime=nvidia\
---gpus all \
---name demo \
+$ docker run -ti -e DISPLAY=$DISPLAY \\
+-v /tmp/.X11-unix:/tmp/.X11-unix \\
+-e USER=$USER \\
+--runtime=nvidia \\
+--gpus all \\
+--name demo \\
 trt20.03-py:demo bash
 
 # For Jetson Nano (Jetpack 4.4),
 
-$ docker run -ti -e DISPLAY=$DISPLAY \
--v /tmp/.X11-unix:/tmp/.X11-unix \
--e USER=$USER \
---runtime=nvidia\
---gpus all \
---name demo \
+$ docker run -ti -e DISPLAY=$DISPLAY \\
+-v /tmp/.X11-unix:/tmp/.X11-unix \\
+-e USER=$USER \\
+--runtime=nvidia \\
+--gpus all \\
+--name demo \\
 r32.4.3:demo bash
